@@ -10,6 +10,7 @@
     <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
     <script src="assets/vendor/underscorejs/underscore-min.js"></script>
     <script src="assets/vendor/bootstrap/js/bootstrap.min.js"></script>
+    
     <script src="assets/js/app.js"></script>
 </head>
         <body>
