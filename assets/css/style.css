@@ -1,0 +1,43 @@
+
+.icon_section{
+  float: left;
+  width: 50px;
+  height: 68px;
+  /* padding: 7px; */
+  padding-top: 8px;
+  line-height: 1.4;
+  text-align: center;
+  background-color: #f9f9f9;
+  border: 1px solid #fff;
+}
+
+.searchbox.col-md-6 {
+  margin-top: 20%;
+  margin-left: 20%;
+}
+
+.icon_section p{  
+  font-size: 8px;
+}
+
+.icon_section i{  
+   font-size: 36px;
+
+  }
+
+
+.icon_section:hover {
+  color: #fff;
+  background-color: #3f51b5;
+  
+}
+.icon_section.selected {
+  background-color: #f50057;
+    color: #fff;
+}
+
+.modal-body.clearfix {
+  height: 500px;
+  /*overflow: hidden;*/
+  overflow-y: auto;
+}
