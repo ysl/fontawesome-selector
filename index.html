@@ -2,109 +2,109 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
+    <!-- Bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <!-- Fontawesome -->
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <!-- Style -->
     <link rel="stylesheet" href="css/style.css">
 
+        <!-- Scripts -->
     <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
     <script src="js/icons.js"></script>
     <script src="js/app.js"></script>
 </head>
-        <body>
+<body>
 
-            <div class="searchbox col-md-6">
-              <div class="input-group">
-                <input type="text" id="icon-input" class="form-control" placeholder="Icon Name ...">
-                <span class="input-group-btn">
-                  <button type="button"  class="btn btn-success" data-toggle="modal" data-target="#myModal"> Select </button>
-                 </span>
-              </div><!-- /input-group -->
-            </div><!-- /.col-lg-6 -->
+  <!-- Icon selector box -->
+  <div class="col-md-6">
+    <div class="input-group">
+      <input type="text" id="icon-input" class="form-control" placeholder="Icon Name ...">
+      <span class="input-group-btn">
+        <button type="button"  class="btn btn-success" data-toggle="modal" data-target="#iconModal"> Select </button>
+       </span>
+    </div><!-- /input-group -->
+  </div><!-- /.col-lg-6 -->
 
-              <div class="modal fade" id="myModal" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                  <div class="modal-dialog">
-                    <div class="modal-content">
-                      <div class="modal-header">                        
-                        <input type="text" id = "txtSearchPage" class="form-control" placeholder="Search for Icon...">
-                      </div>
-                    <div class="modal-body clearfix">
+  <div class="modal fade" id="iconModal" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="iconModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">                        
+          <input type="text" id="searchIcon" class="form-control" placeholder="Search Icon">
+        </div>
+
+      <div class="modal-body clearfix">        
+        <div class="form-group">
+           <!-- Underscoor Templating -->
+           <script type="text/javascript">
+           (function($, icons){
+              $(function(){
+                  var $search = $("#searchIcon");
+                  var $iconSize = $("#fa-icon-size");
+
+                  var template = _.template($("#icon-template").html());
+
+                  var renderIconList = function(icons, template, query, size){
+                      var filteredIcons = _.filter(icons, function(icon){
+                          return icon.indexOf(query) !== -1;
+                      });
+
+                      var html = template({"icons": filteredIcons, "size": size});
                       
-                      <div class="form-group">
-                        
-                         <!-- Underscoor Templating -->
-                         <script type="text/javascript">
-                         (function($, icons){
-                            $(function(){
-                                var $search = $("#txtSearchPage");
-                                var $iconSize = $("#tx-icon-size");
+                      $(".fa-icons-list").html(html);
+                  };
+                  
+                  $search.on("keyup change", function(){
+                      var query = $search.val();
+                      var size = $iconSize.val();
+                      renderIconList(icons, template, query, size);
+                  });
 
-                                var template = _.template($("#icon-template").html());
-
-                                var renderIconList = function(icons, template, query, size){
-                                    var filteredIcons = _.filter(icons, function(icon){
-                                        return icon.indexOf(query) !== -1;
-                                    });
-
-                                    var html = template({"icons": filteredIcons, "size": size});
-                                    
-                                    $(".fa-icons-list").html(html);
-                                };
-                                
-                                $search.on("keyup change", function(){
-                                    var query = $search.val();
-                                    var size = $iconSize.val();
-                                    renderIconList(icons, template, query, size);
-                                });
-
-                                $iconSize.on("change", function(){
-                                    var size = $iconSize.val();
-                                    console.log("size is %s",size);
-
-                                    $("li span").attr("data-size", size);
-                                });
+                  $iconSize.on("change", function(){
+                      var size = $iconSize.val();
+                      $("li span").attr("data-size", size);
+                  });
 
 
-                                renderIconList(icons, template, "");
-                            });
-                         }(jQuery, tx_font_awesome_icons));
-                         </script>
+                  renderIconList(icons, template, "");
+              });
+           }(jQuery, tx_font_awesome_icons));
+           </script>
 
-                         <script id="icon-template" type="text/template">
-                            <% _.each(icons, function(icon){%>
-                            <li>
-                                <span data-size="<%=size%>" class="fa fa-<%=icon%>"></span>
-                                <p><%=icon%> </p>
-                            </li>
-                            <% }) %>
-                         </script>
+           <script id="icon-template" type="text/template">
+              <% _.each(icons, function(icon){%>
+              <li>
+                  <span data-size="<%=size%>" class="fa fa-<%=icon%>"></span>
+                  <p><%=icon%> </p>
+              </li>
+              <% }) %>
+           </script>
 
-                     <ul class="fa-icons-list clearfix"></ul>
+       <ul class="fa-icons-list clearfix"></ul>
 
-               <!-- Insert into model -->
-                </div>
-                  </div>
-                     <div class="modal-footer">
-                        
-                      
-                        <button type="button" class="btn btn-danger pull-left" data-dismiss="modal">Close</button>
-                        <div class="col-xs-3">
-                          <select id ="tx-icon-size" class="form-control">
-                            <option value="">Icon Size..</option>
-                            <option value="fa-lg">fa-lg</option>
-                            <option value="fa-2x">fa-2x</option>
-                            <option value="fa-3x">fa-3x</option>
-                            <option value="fa-4x">fa-4x</option>
-                            <option value="fa-5x">fa-5x</option>
-                        </select>
-                      </div>
-                        <button type="button" class="btn btn-success icon-insert-button">Insert Icon</button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+  <!-- Insert into model -->
+  </div>
+    </div>
+
+       <div class="modal-footer">
+          <button type="button" class="btn btn-danger pull-left" data-dismiss="modal">Close</button>
+          <div class="col-xs-3">
+            <select id ="fa-icon-size" class="form-control">
+              <option value="">Icon Size..</option>
+              <option value="fa-lg">fa-lg</option>
+              <option value="fa-2x">fa-2x</option>
+              <option value="fa-3x">fa-3x</option>
+              <option value="fa-4x">fa-4x</option>
+              <option value="fa-5x">fa-5x</option>
+          </select>
+        </div>
+          <button type="button" class="btn btn-success icon-insert-button">Insert Icon</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
 </body>
 </html>

@@ -1,6 +1,5 @@
 (function($) {
-
-
+  
   $(document).ready(function(){
 
     $(document).on("click",".fa-icons-list li",function(){
@@ -14,14 +13,8 @@
       var icon_size = $selectedIcon.attr('data-size');
 
       if(icon_class) $("#icon-input").val(icon_class+" "+icon_size);
-
-      // console.log($("#icon-input"))
-      $("#myModal").modal('hide');
+      $("#iconModal").modal('hide');
     });
-
-
   });
-
-
 
 })(jQuery);
