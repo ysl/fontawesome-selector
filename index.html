@@ -42,7 +42,7 @@
                             $(function(){
                                 var template = _.template($("#icon-template").html());
                                 var renderIconList = function(icons, template, query){
-                                    var icons = _.filter(icons, function(icon){return icon[0].indexOf(query) !== -1;});
+                                    var icons = _.filter(icons, function(icon){return icon.indexOf(query) !== -1;});
                                     var html = template({"icons": icons});
                                     $(".fa-icons-list").html(html);
                                 };
@@ -60,8 +60,8 @@
                          <script id="icon-template" type="text/template">
                             <% _.each(icons, function(icon){%>
                             <div class="icon_section">
-                                <i class="fa fa-<%=icon[0]%>"></i><br>
-                                <p class= "name"><%=icon[0]%> </p><br>
+                                <i class="fa fa-<%=icon%>"></i><br>
+                                <p class= "name"><%=icon%> </p><br>
                             </div>
                             <% }) %>
                          </script>
