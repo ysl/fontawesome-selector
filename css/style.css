@@ -1,3 +1,10 @@
+body{
+	background: #F44336;
+}
+.wrapper{ width: 500px; margin: 15% auto 0; padding: 15px; }
+
+h1{ color: #fff; margin: 0 0 40px; }
+
 ul{ list-style: none; margin: 0; padding: 0; }
 li{
   float: left;
