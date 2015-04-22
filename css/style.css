@@ -1,14 +1,13 @@
 
-.icon_section{
+li{
   float: left;
-  width: 50px;
+  width: 12%;
   height: 68px;
-  /* padding: 7px; */
-  padding-top: 8px;
-  line-height: 1.4;
+  padding: 8px;
   text-align: center;
   background-color: #f9f9f9;
-  border: 1px solid #fff;
+  margin: 1px;
+  cursor: pointer;
 }
 
 .searchbox.col-md-6 {
@@ -16,22 +15,25 @@
   margin-left: 20%;
 }
 
-.icon_section p{  
-  font-size: 8px;
+.col-xs-3{
+  margin-left: 45%;
 }
 
-.icon_section i{  
-   font-size: 36px;
+span.fa{
+   font-size: 30px;
+}
 
-  }
+li p{  
+  font-size: 9px;
+}
 
 
-.icon_section:hover {
+li:hover {
   color: #fff;
   background-color: #398439;
   
 }
-.icon_section.selected {
+li.selected {
   background-color: #f50057;
     color: #fff;
 }
@@ -40,4 +42,10 @@
   height: 400px;
   /*overflow: hidden;*/
   overflow-y: auto;
+}
+
+ul{  
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
 }
