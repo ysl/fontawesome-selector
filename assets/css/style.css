@@ -28,7 +28,7 @@
 
 .icon_section:hover {
   color: #fff;
-  background-color: #3f51b5;
+  background-color: #398439;
   
 }
 .icon_section.selected {
@@ -37,7 +37,7 @@
 }
 
 .modal-body.clearfix {
-  height: 500px;
+  height: 400px;
   /*overflow: hidden;*/
   overflow-y: auto;
 }
