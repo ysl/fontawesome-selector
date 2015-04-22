@@ -19,14 +19,12 @@
 <body>
 
   <!-- Icon selector box -->
-  <div class="col-md-6">
-    <div class="input-group">
-      <input type="text" id="icon-input" class="form-control" placeholder="Icon Name ...">
-      <span class="input-group-btn">
-        <button type="button"  class="btn btn-success" data-toggle="modal" data-target="#iconModal"> Select </button>
-       </span>
-    </div><!-- /input-group -->
-  </div><!-- /.col-lg-6 -->
+  <div class="input-group">
+    <input type="text" id="icon-input" class="form-control" placeholder="Icon Name ...">
+    <span class="input-group-btn">
+      <button type="button"  class="btn btn-success" data-toggle="modal" data-target="#iconModal"> Select </button>
+     </span>
+  </div><!-- /input-group -->
 
   <div class="modal fade" id="iconModal" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="iconModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -82,26 +80,24 @@
               <% }) %>
            </script>
 
-       <ul class="fa-icons-list clearfix"></ul>
+          <ul class="fa-icons-list clearfix"></ul>
+        </div>
 
-  <!-- Insert into model -->
-  </div>
     </div>
-
-       <div class="modal-footer">
-          <button type="button" class="btn btn-danger pull-left" data-dismiss="modal">Close</button>
-          <div class="col-xs-3">
-            <select id ="fa-icon-size" class="form-control">
-              <option value="">Icon Size..</option>
-              <option value="fa-lg">fa-lg</option>
-              <option value="fa-2x">fa-2x</option>
-              <option value="fa-3x">fa-3x</option>
-              <option value="fa-4x">fa-4x</option>
-              <option value="fa-5x">fa-5x</option>
-          </select>
-        </div>
-          <button type="button" class="btn btn-success icon-insert-button">Insert Icon</button>
-        </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-danger pull-left" data-dismiss="modal">Close</button>
+      <button type="button" class="btn btn-success icon-insert-button pull-right">Insert Icon</button>
+      <select id ="fa-icon-size" class="form-control pull-right">
+          <option value="">Icon Size..</option>
+          <option value="fa-lg">fa-lg</option>
+          <option value="fa-2x">fa-2x</option>
+          <option value="fa-3x">fa-3x</option>
+          <option value="fa-4x">fa-4x</option>
+          <option value="fa-5x">fa-5x</option>
+      </select>
+      
+    </div>
+      
       </div>
     </div>
   </div>
