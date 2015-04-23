@@ -1,16 +1,41 @@
 (function ($, icons, webChef) {
+	var ACTIVE_INPUT;
+
 	var iconLiTemplate = 
 		'<li>'+
-			'<span data-size="<%size%>" class="fa fa-<%icon%>"></span>'+
+			'<span class="fa fa-<%icon%>"></span>'+
 			'<p><%icon%> </p>'+
 		'</li>';
 
 	var iconModalTemplate = 
-		'<div class="tx-icon-list-modal" id="tx-icon-list-modal" style="display:none">'+
-			'<input type="text" name="tx-icon-search" id="tx-icon-search">'+
-			'<ul class="icons-list"></ul>'+
-			'<a class="icon-modal-cancel" href="#">Close</a>'+
-			'<a class="icon-modal-confirm" href="#">Insert</a>'+
+		'<div class="modal fade" id="tx-icon-list-modal" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="Icon List" aria-hidden="true">'+
+			'<div class="modal-dialog">'+
+				'<div class="modal-content">'+
+					'<div class="modal-header">'+
+						'<input type="text" id="tx-icon-search" class="form-control" placeholder="Search Icon">'+
+					'</div>'+
+
+					'<div class="modal-body clearfix">'+
+						'<div class="form-group">'+
+							'<ul class="tx-icons-list clearfix"></ul>'+
+						'</div>'+
+					'</div>'+
+
+					'<div class="modal-footer">'+
+						'<button type="button" class="btn btn-danger pull-left" data-dismiss="modal">Close</button>'+
+						'<button type="button" class="btn btn-success icon-insert-button pull-right">Insert Icon</button>'+
+						
+						'<select id ="tx-icon-size" class="form-control pull-right">'+
+							'<option value="">Icon Size..</option>'+
+							'<option value="fa-lg">fa-lg</option>'+
+							'<option value="fa-2x">fa-2x</option>'+
+							'<option value="fa-3x">fa-3x</option>'+
+							'<option value="fa-4x">fa-4x</option>'+
+							'<option value="fa-5x">fa-5x</option>'+
+						'</select>'+
+					'</div>'+
+				'</div>'+
+			'</div>'+
 		'</div>';
 
 	var getSuggestedIcons = function(query){
@@ -29,20 +54,27 @@
 
 	var generateIconsDOM = function(icons){
 		var list = generateIconsList(icons);
-		$(".icons-list").html(list);
+		$(".tx-icons-list").html(list);
 	};
 
-	var iconSelector = function(options){
-		$(this).on("click", function(){
-			$("#tx-icon-list-modal").modal({
-				escapeClose: false,
-				clickClose: false,
-				showClose: false
-			});
+	var getSelectedIcon = function(){
+		var iconSize = $("#tx-icon-size").val();
+		var iconClass = $(".tx-icons-list li.active span").attr('class');
+		console.log("size: %s, class: %s", iconSize, iconClass);
 
-			generateIconsDOM(icons);
-		});
+		return iconClass ? iconClass+" "+iconSize : false;
 	};
+
+	$(document).on("click", ".icon-insert-button", function(){
+		var icon = getSelectedIcon();
+		if(!icon) {
+			alert("please select an icon to select");
+			return;
+		}
+
+		ACTIVE_INPUT.val(icon);
+		$("#tx-icon-list-modal").modal('hide');
+	});
 
 	$(document).on("keyup change", "#tx-icon-search", function(){
 		var query = $(this).val();
@@ -50,6 +82,18 @@
 		generateIconsDOM(suggestedIcons);
 	});
 
+    $(document).on("click",".tx-icons-list li",function(){
+      $(".tx-icons-list li").removeClass("active");
+      $(this).addClass("active");
+    });
+	
+	var iconSelector = function(options){
+		$(this).on("click", function(){
+			ACTIVE_INPUT = $(options.input);
+			$("#tx-icon-list-modal").modal('show');
+			generateIconsDOM(icons);
+		});
+	};
 
 	//onload
 	$(function(){
@@ -57,6 +101,14 @@
 		generateIconsDOM(icons);
 	});
 
-	$.fn.iconSelector = iconSelector;
+	// $.fn.iconSelector = iconSelector;
+	$.fn.iconSelector = function(options){
+		$(this).on("click", function(){
+			ACTIVE_INPUT = $(options.input);
+
+			generateIconsDOM(icons);
+			$("#tx-icon-list-modal").modal('show');
+		});
+	};
 
 }(jQuery, tx_font_awesome_icons, webChef));
