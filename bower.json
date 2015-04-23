@@ -1,0 +1,21 @@
+{
+  "name": "fontawesome-selector",
+  "version": "0.0.0",
+  "homepage": "https://github.com/nadimtuhin/fontawesome-selector",
+  "authors": [
+    "Nadim Tuhin <nadimtuhin@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.3",
+    "fontawesome": "~4.3.0",
+    "jquery-modal": "~0.5.2"
+  }
+}
