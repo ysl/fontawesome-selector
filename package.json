@@ -1,0 +1,37 @@
+{
+  "name": "fontawesome-selector",
+  "version": "1.0.0",
+  "description": "",
+  "main": "gulpfile.js",
+  "dependencies": {
+    "gulp": "^3.8.11",
+    "gulp-concat": "^2.5.2",
+    "gulp-html-replace": "^1.4.5",
+    "gulp-less": "^3.0.3",
+    "gulp-minify-css": "^1.1.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-uglify": "^1.2.0"
+  },
+  "devDependencies": {
+    "gulp": "^3.8.11",
+    "gulp-concat": "^2.5.2",
+    "gulp-html-replace": "^1.4.5",
+    "gulp-less": "^3.0.3",
+    "gulp-minify-css": "^1.1.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-uglify": "^1.2.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nadimtuhin/fontawesome-selector.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nadimtuhin/fontawesome-selector/issues"
+  },
+  "homepage": "https://github.com/nadimtuhin/fontawesome-selector"
+}
