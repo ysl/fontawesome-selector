@@ -117,10 +117,10 @@ gulp.task('build', ['copy', 'less', 'css', 'js'], function(){
 	gulp.src([
 		"dist/src/icon-selector.css",
 	])
-	.pipe(concat("icon-selector.css"))
+	.pipe(concat("icon-selector.bootstrap.css"))
 	.pipe(gulp.dest(path.DEST_BUILD))
 
-	.pipe(concat("icon-selector.min.css"))
+	.pipe(concat("icon-selector.bootstrap.min.css"))
 	.pipe(gulp.dest(path.DEST_BUILD));
 });
 
