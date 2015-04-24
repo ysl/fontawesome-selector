@@ -20,13 +20,35 @@
     <!-- endbuild -->
 </head>
 <body>
+  <div class="wrapper">
+    <h1>FontAwesome Icon Selector</h1>
+	<input type="text" size="32%" class="tx-input-box icon-placeholder icon">
+	<button class="tx-btn icon-selector">Select Icon</button>
+  </div>
 
-<input type="text" class="icon-placeholder icon">
-<button class="icon-selector">Select</button>
+  <div class="tx-icon-uses">
+  	
+  		<pre>
+  			<h1>USAGE INFO</h1>
+		  	&lt;script src=&quot;http://code.jquery.com/jquery.min.js&quot;&gt;&lt;/script&gt;
+			&lt;link rel=&quot;stylesheet&quot; href=&quot;//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css&quot;&gt;
+			&lt;script src=&quot;build/icon-selector.js&quot;&gt;&lt;/script&gt;
+			&lt;link rel=&quot;stylesheet&quot; href=&quot;build/icon-selector.css&quot;&gt;
+
+			&lt;input type=&quot;text&quot; class=&quot;icon-placeholder icon&quot;&gt;
+			&lt;button class=&quot;icon-selector&quot;&gt;Select&lt;/button&gt;
+
+			&lt;script&gt;
+			$(&quot;.icon-selector&quot;).iconSelector({input: &#39;.icon&#39;});
+			&lt;/script&gt;
+	</pre>
+  </div>
 
 <script>
 	$(".icon-selector").iconSelector({input: '.icon'});
 </script>
+
+  <a href="https://github.com/themexpert/fontawesome-selector"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/e7bbb0521b397edbd5fe43e7f760759336b5e05f/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677265656e5f3030373230302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png"></a>
 
 </body>
 </html>

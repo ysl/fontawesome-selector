@@ -1000,7 +1000,8 @@ if (typeof jQuery === 'undefined') {
 			'<div class="modal-dialog">'+
 				'<div class="modal-content">'+
 					'<div class="modal-header">'+
-						'<input type="text" id="tx-icon-search" class="form-control" placeholder="Search Icon">'+
+						'<input type="text" id="tx-icon-search" class="tx-input-box" placeholder="Search Icon">'+
+						'<span class="search-icon fa fa-search"></span>'+
 					'</div>'+
 
 					'<div class="modal-body clearfix">'+
@@ -1010,10 +1011,10 @@ if (typeof jQuery === 'undefined') {
 					'</div>'+
 
 					'<div class="modal-footer">'+
-						'<button type="button" class="btn btn-danger pull-left" data-dismiss="modal">Close</button>'+
-						'<button type="button" class="btn btn-success icon-insert-button pull-right">Insert Icon</button>'+
+						'<button type="button" class="tx-btn pull-left" data-dismiss="modal">Close</button>'+
+						'<button type="button" class="tx-btn-insert btn-success icon-insert-button pull-right">Insert Icon</button>'+
 						
-						'<select id ="tx-icon-size" class="form-control pull-right">'+
+						'<select id ="tx-icon-size" class="tx-search-box pull-right">'+
 							'<option value="">Icon Size..</option>'+
 							'<option value="fa-lg">fa-lg</option>'+
 							'<option value="fa-2x">fa-2x</option>'+
