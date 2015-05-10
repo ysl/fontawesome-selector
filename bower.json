@@ -1,10 +1,11 @@
 {
   "name": "fontawesome-selector",
   "version": "0.0.0",
-  "homepage": "https://github.com/nadimtuhin/fontawesome-selector",
+  "homepage": "https://github.com/themexpert/fontawesome-selector",
   "authors": [
-    "Nadim Tuhin <nadimtuhin@gmail.com>"
+    "Nadim Tuhin <info@themexpert.com>"
   ],
+  "main":["icon-selector.min.css", "icon-selector.min.js"],
   "license": "MIT",
   "ignore": [
     "**/.*",
