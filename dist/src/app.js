@@ -88,20 +88,14 @@
     $(this).addClass("active");
   });
 
-  var removeListener = function($el){
-		$el.on("click", function(){
+
+	
+	var iconSelector = function(options){
+		$(this).on("click", function(){
 			ACTIVE_INPUT = $(options.input);
 			$("#tx-icon-list-modal").modal('show');
 			generateIconsDOM(icons);
 		});
-  };
-
-  var addEventListener = function($el){
-
-  };
-	
-	var iconSelector = function(options){
-		addEventListener($(this));
 	};
 
 	//onload
@@ -111,13 +105,5 @@
 	});
 
 	$.fn.iconSelector = iconSelector;
-	// $.fn.iconSelector = function(options){
-	// 	$(this).on("click", function(){
-	// 		ACTIVE_INPUT = $(options.input);
-
-	// 		generateIconsDOM(icons);
-	// 		$("#tx-icon-list-modal").modal('show');
-	// 	});
-	// };
 
 }(jQuery, tx_font_awesome_icons, webChef));
