@@ -73,6 +73,7 @@
 		}
 
 		ACTIVE_INPUT.val(icon);
+    ACTIVE_INPUT.trigger("icon:inserted");
 		$("#tx-icon-list-modal").modal('hide');
 	});
 
