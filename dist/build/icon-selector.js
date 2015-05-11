@@ -1070,17 +1070,25 @@ if (typeof jQuery === 'undefined') {
 		generateIconsDOM(suggestedIcons);
 	});
 
-    $(document).on("click",".tx-icons-list li",function(){
-      $(".tx-icons-list li").removeClass("active");
-      $(this).addClass("active");
-    });
-	
-	var iconSelector = function(options){
-		$(this).on("click", function(){
+  $(document).on("click",".tx-icons-list li",function(){
+    $(".tx-icons-list li").removeClass("active");
+    $(this).addClass("active");
+  });
+
+  var removeListener = function($el){
+		$el.on("click", function(){
 			ACTIVE_INPUT = $(options.input);
 			$("#tx-icon-list-modal").modal('show');
 			generateIconsDOM(icons);
 		});
+  };
+
+  var addEventListener = function($el){
+
+  };
+	
+	var iconSelector = function(options){
+		addEventListener($(this));
 	};
 
 	//onload
@@ -1089,14 +1097,14 @@ if (typeof jQuery === 'undefined') {
 		generateIconsDOM(icons);
 	});
 
-	// $.fn.iconSelector = iconSelector;
-	$.fn.iconSelector = function(options){
-		$(this).on("click", function(){
-			ACTIVE_INPUT = $(options.input);
+	$.fn.iconSelector = iconSelector;
+	// $.fn.iconSelector = function(options){
+	// 	$(this).on("click", function(){
+	// 		ACTIVE_INPUT = $(options.input);
 
-			generateIconsDOM(icons);
-			$("#tx-icon-list-modal").modal('show');
-		});
-	};
+	// 		generateIconsDOM(icons);
+	// 		$("#tx-icon-list-modal").modal('show');
+	// 	});
+	// };
 
 }(jQuery, tx_font_awesome_icons, webChef));
