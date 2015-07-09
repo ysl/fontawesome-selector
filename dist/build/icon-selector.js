@@ -990,7 +990,7 @@ if (typeof jQuery === 'undefined') {
 	var ACTIVE_INPUT;
 
 	var iconLiTemplate = 
-		'<li>'+
+		'<li class="<%active%>">'+
 			'<span class="fa fa-<%icon%>"></span>'+
 			'<p><%icon%> </p>'+
 		'</li>';
@@ -1033,8 +1033,12 @@ if (typeof jQuery === 'undefined') {
 	};
 
 	var generateIconsList = function(icons){
+		var iconvalue = ACTIVE_INPUT ? ACTIVE_INPUT.val() : "";
+
 		var list = $.map(icons, function(icon){
-			return webChef.cook(iconLiTemplate, {'icon':icon, size: ""});
+			var active = iconvalue ? (icon === iconvalue.split(" ")[1].replace("fa-", "")) : false;
+
+			return webChef.cook(iconLiTemplate, {'icon':icon, size: "", active: active?'active':""});
 		});
 
 		return list.join("");
