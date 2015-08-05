@@ -5,7 +5,7 @@
   "authors": [
     "Nadim Tuhin <info@themexpert.com>"
   ],
-  "main":["dist/build/icon-selector.min.css", "dist/build/icon-selector.min.js"],
+  "main":["dist/build/icon-selector.min.css", "dist/build/icon-selector.min.js","dist/build/icon-selector.bootstrap.min.css", "dist/build/icon-selector.bootstrap.min.js"],
   "license": "MIT",
   "ignore": [
     "**/.*",
