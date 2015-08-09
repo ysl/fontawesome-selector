@@ -677,7 +677,8 @@ var tx_font_awesome_icons = [
 		var iconvalue = ACTIVE_INPUT ? ACTIVE_INPUT.val() : "";
 
 		var list = $.map(icons, function(icon){
-			var active = iconvalue ? (icon === iconvalue.split(" ")[1].replace("fa-", "")) : false;
+			var icon_arr = iconvalue.split(" ");
+			var active = iconvalue ? (icon_arr.length > 1 && icon === icon_arr[1].replace("fa-", "")) : false;
 
 			return webChef.cook(iconLiTemplate, {'icon':icon, size: "", active: active?'active':""});
 		});
