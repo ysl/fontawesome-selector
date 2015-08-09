@@ -625,11 +625,13 @@ var tx_font_awesome_icons = [
 	//expose webChef to global object
 	window.webChef = webChef;
 }(window));
+
+
 (function ($, icons, webChef) {
 	var ACTIVE_INPUT;
 
 	var iconLiTemplate = 
-		'<li>'+
+		'<li class="<%active%>">'+
 			'<span class="fa fa-<%icon%>"></span>'+
 			'<p><%icon%> </p>'+
 		'</li>';
@@ -653,7 +655,7 @@ var tx_font_awesome_icons = [
 						'<button type="button" class="btn btn-success icon-insert-button pull-right">Insert Icon</button>'+
 						
 						'<select id ="tx-icon-size" class="form-control pull-right">'+
-							'<option value="">Icon Size..</option>'+
+							'<option value="fa-5x">Icon Size..</option>'+
 							'<option value="fa-lg">fa-lg</option>'+
 							'<option value="fa-2x">fa-2x</option>'+
 							'<option value="fa-3x">fa-3x</option>'+
@@ -672,8 +674,12 @@ var tx_font_awesome_icons = [
 	};
 
 	var generateIconsList = function(icons){
+		var iconvalue = ACTIVE_INPUT ? ACTIVE_INPUT.val() : "";
+
 		var list = $.map(icons, function(icon){
-			return webChef.cook(iconLiTemplate, {'icon':icon, size: ""});
+			var active = iconvalue ? (icon === iconvalue.split(" ")[1].replace("fa-", "")) : false;
+
+			return webChef.cook(iconLiTemplate, {'icon':icon, size: "", active: active?'active':""});
 		});
 
 		return list.join("");
@@ -700,6 +706,7 @@ var tx_font_awesome_icons = [
 		}
 
 		ACTIVE_INPUT.val(icon);
+    ACTIVE_INPUT.trigger("icon:inserted");
 		$("#tx-icon-list-modal").modal('hide');
 	});
 
@@ -709,10 +716,12 @@ var tx_font_awesome_icons = [
 		generateIconsDOM(suggestedIcons);
 	});
 
-    $(document).on("click",".tx-icons-list li",function(){
-      $(".tx-icons-list li").removeClass("active");
-      $(this).addClass("active");
-    });
+  $(document).on("click",".tx-icons-list li",function(){
+    $(".tx-icons-list li").removeClass("active");
+    $(this).addClass("active");
+  });
+
+
 	
 	var iconSelector = function(options){
 		$(this).on("click", function(){
@@ -728,14 +737,6 @@ var tx_font_awesome_icons = [
 		generateIconsDOM(icons);
 	});
 
-	// $.fn.iconSelector = iconSelector;
-	$.fn.iconSelector = function(options){
-		$(this).on("click", function(){
-			ACTIVE_INPUT = $(options.input);
-
-			generateIconsDOM(icons);
-			$("#tx-icon-list-modal").modal('show');
-		});
-	};
+	$.fn.iconSelector = iconSelector;
 
 }(jQuery, tx_font_awesome_icons, webChef));
