@@ -629,6 +629,7 @@ var tx_font_awesome_icons = [
 
 (function ($, icons, webChef) {
 	var ACTIVE_INPUT;
+	var ACTIVE_SIZE = "";
 
 	var iconLiTemplate = 
 		'<li class="<%active%>">'+
@@ -695,7 +696,6 @@ var tx_font_awesome_icons = [
 	var getSelectedIcon = function(){
 		var iconSize = $("#tx-icon-size").val();
 		var iconClass = $(".tx-icons-list li.active span").attr('class');
-		console.log("size: %s, class: %s", iconSize, iconClass);
 
 		return iconClass ? iconClass+" "+iconSize : false;
 	};
@@ -708,7 +708,7 @@ var tx_font_awesome_icons = [
 		}
 
 		ACTIVE_INPUT.val(icon);
-    ACTIVE_INPUT.trigger("icon:inserted");
+    		ACTIVE_INPUT.trigger("icon:inserted");
 		$("#tx-icon-list-modal").modal('hide');
 	});
 
@@ -728,6 +728,8 @@ var tx_font_awesome_icons = [
 	var iconSelector = function(options){
 		$(this).on("click", function(){
 			ACTIVE_INPUT = $(options.input);
+			ACTIVE_SIZE  = options.size ? options.size : ACTIVE_SIZE;
+			$("#tx-icon-size").val(ACTIVE_SIZE);
 			$("#tx-icon-list-modal").modal('show');
 			generateIconsDOM(icons);
 		});
