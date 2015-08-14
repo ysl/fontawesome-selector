@@ -656,6 +656,7 @@ var tx_font_awesome_icons = [
 						
 						'<select id ="tx-icon-size" class="form-control pull-right">'+
 							'<option value="fa-5x">Icon Size..</option>'+
+							'<option value="">Normal Size</option>'+
 							'<option value="fa-lg">fa-lg</option>'+
 							'<option value="fa-2x">fa-2x</option>'+
 							'<option value="fa-3x">fa-3x</option>'+
