@@ -674,4 +674,4 @@ var tx_font_awesome_icons = [
 "superpowers",
 "wpexplorer",
 "meetup"
-]
+];
