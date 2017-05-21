@@ -16,7 +16,7 @@
   ],
   "dependencies": {
     "jquery": "~2.1.3",
-    "fontawesome": "~4.3.0",
+    "fontawesome": "latest",
     "jquery-modal": "~0.5.2"
   }
 }
