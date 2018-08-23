@@ -54,9 +54,19 @@
 
 	var generateIconsList = function(icons, classPrefix){
 		var iconvalue = ACTIVE_INPUT ? ACTIVE_INPUT.val() : "";
+		var target = "";
+		if (iconvalue) {
+			var prefix = classPrefix.split(" ").find(function(str) {
+				return str.indexOf("-") != -1;
+			});
+			var iconvalue_array = iconvalue.split(" ");
+			if (iconvalue_array.length >= 2 && prefix && iconvalue_array[1].startsWith(prefix)) {
+				target = iconvalue_array[1].replace(prefix, "");
+			}
+		}
 
 		var list = $.map(icons, function(icon){
-			var active = iconvalue ? (icon === iconvalue.split(" ")[1].replace("fa-", "")) : false;
+			var active = (icon === target);
 
 			return webChef.cook(iconLiTemplate, {'icon':icon, size: "", active: active?'active':"", classPrefix: classPrefix});
 		});
@@ -89,7 +99,6 @@
 	var getSelectedIcon = function(){
 		var iconSize = $("#tx-icon-size").val();
 		var iconClass = $(".tx-icons-list li.active span").attr('class');
-		console.log("size: %s, class: %s", iconSize, iconClass);
 
 		return iconClass ? iconClass+" "+iconSize : false;
 	};
