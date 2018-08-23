@@ -29,13 +29,13 @@
 						'<button type="button" class="btn btn-danger pull-left" data-dismiss="modal">Close</button>'+
 						'<button type="button" class="btn btn-success icon-insert-button pull-right">Insert Icon</button>'+
 						
-						'<select id ="tx-icon-size" class="form-control pull-right">'+
-							'<option value="fa-5x">Icon Size..</option>'+
-							'<option value="fa-lg">fa-lg</option>'+
-							'<option value="fa-2x">fa-2x</option>'+
-							'<option value="fa-3x">fa-3x</option>'+
-							'<option value="fa-4x">fa-4x</option>'+
-							'<option value="fa-5x">fa-5x</option>'+
+						'<label>Size: </label>' +
+						'<select id="tx-icon-size" class="form-control pull-right">'+
+							'<option value="fa-lg">1X</option>'+
+							'<option value="fa-2x">2X</option>'+
+							'<option value="fa-3x">3X</option>'+
+							'<option value="fa-4x">4X</option>'+
+							'<option value="fa-5x" selected>5X</option>'+
 						'</select>'+
 					'</div>'+
 				'</div>'+
@@ -103,6 +103,22 @@
 		return iconClass ? iconClass+" "+iconSize : false;
 	};
 
+	var setIconSizeToSelect = function() {
+		var iconvalue = ACTIVE_INPUT ? ACTIVE_INPUT.val() : "";
+		if (iconvalue) {
+			var iconvalue_array = iconvalue.split(" ");
+
+			// Get icon size.
+			var size = iconvalue_array.find(function(className) {
+				return (["fa-lg", "fa-2x", "fa-3x", "fa-4x", "fa-5x"].indexOf(className) != -1) ? className : '';
+			});
+
+			if (size) {
+				$("#tx-icon-size").val(size);
+			}
+		}
+	}
+
 	$(document).on("click", ".icon-insert-button", function(){
 		var icon = getSelectedIcon();
 		if(!icon) {
@@ -131,6 +147,7 @@
 			ACTIVE_INPUT = $(options.input);
 			$("#tx-icon-list-modal").modal('show');
 			generateIconsDOM(iconList);
+			setIconSizeToSelect();
 		});
 	};
 
