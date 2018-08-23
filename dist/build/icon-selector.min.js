@@ -1469,8 +1469,8 @@ if (typeof jQuery === 'undefined') {
 						'<button type="button" class="btn btn-danger pull-left" data-dismiss="modal">Close</button>'+
 						'<button type="button" class="btn btn-success icon-insert-button pull-right">Insert Icon</button>'+
 						
-						'<select id="tx-icon-size" class="form-control pull-right hidden">'+
-							'<option value="">Icon Size..</option>'+
+						'<select id ="tx-icon-size" class="form-control pull-right">'+
+							'<option value="fa-5x">Icon Size..</option>'+
 							'<option value="fa-lg">fa-lg</option>'+
 							'<option value="fa-2x">fa-2x</option>'+
 							'<option value="fa-3x">fa-3x</option>'+
