@@ -26,17 +26,19 @@
 					'<div class="modal-body clearfix icons-container"></div>'+
 
 					'<div class="modal-footer">'+
-						'<button type="button" class="btn btn-danger pull-left" data-dismiss="modal">Close</button>'+
-						'<button type="button" class="btn btn-success icon-insert-button pull-right">Insert Icon</button>'+
-						
-						'<label>Size: </label>' +
-						'<select id="tx-icon-size" class="form-control pull-right">'+
-							'<option value="fa-lg">1X</option>'+
-							'<option value="fa-2x">2X</option>'+
-							'<option value="fa-3x">3X</option>'+
-							'<option value="fa-4x">4X</option>'+
-							'<option value="fa-5x" selected>5X</option>'+
-						'</select>'+
+						'<div class="form-group pull-left" style="display: flex;">'+
+							'<label style="margin: auto;">Size: </label>' +
+							'<select id="tx-icon-size" class="form-control">'+
+								'<option value="fa-lg">1X</option>'+
+								'<option value="fa-2x">2X</option>'+
+								'<option value="fa-3x">3X</option>'+
+								'<option value="fa-4x">4X</option>'+
+								'<option value="fa-5x" selected>5X</option>'+
+							'</select>'+
+						'</div>'+
+
+						'<button type="button" class="btn btn-success icon-insert-button pull-right" style="margin-left: 5px">Insert Icon</button>'+
+						'<button type="button" class="btn btn-danger pull-right" data-dismiss="modal">Close</button>'+
 					'</div>'+
 				'</div>'+
 			'</div>'+
